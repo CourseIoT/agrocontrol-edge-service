@@ -4,9 +4,11 @@ from shared.infastructure.database import init_database
 from iam.application.services import AuthApplicationService
 
 from iam.interfaces.services import iam_api
+from sensor.interfaces.services import sensor_api
 
 app = Flask(__name__)
 app.register_blueprint(iam_api)
+app.register_blueprint(sensor_api)
 
 def setup():
 
