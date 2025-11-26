@@ -1,4 +1,5 @@
 from peewee import Model, CharField, DateTimeField
+
 from shared.infastructure.database import database as edge_database
 
 class Device(Model):

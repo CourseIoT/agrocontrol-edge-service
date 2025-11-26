@@ -1,5 +1,5 @@
 
-# Clase del dispositivo
+# Device entity
 class Device:
 
     def __init__(self, device_id: str, api_key: str, created_at) -> None:

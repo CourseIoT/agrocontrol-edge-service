@@ -1,7 +1,8 @@
 from typing import Optional
+from datetime import datetime, timezone
+
 from iam.domain.entites import Device
 from iam.infrastructure.models import Device as DeviceModel
-from datetime import datetime, timezone
 
 import peewee
 
@@ -19,19 +20,18 @@ class DeviceRepository:
     
     @staticmethod
     def insert_device(device_id, api_key) -> None:
-
-        now=datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ");
+        now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ");
         # Insert a new device into the database
         DeviceModel.create(
-            device_id=device_id,
-            api_key=api_key,
-            created_at=now
+            device_id = device_id,
+            api_key = api_key,
+            created_at = now
         )
     @staticmethod
     def get_or_create_test_device() -> Device:
         # Creates a test device if it does not exist
         device, _ = DeviceModel.get_or_create(
-            device_id="smart-band-001",
-            defaults={"api_key": "test-api-key-123", "created_at": "2025-06-04T23:23:00Z"}
+            device_id = "smart-band-001",
+            defaults = {"api_key": "test-api-key-123", "created_at": "2025-06-04T23:23:00Z"}
         )
         return Device(device.device_id, device.api_key, device.created_at)

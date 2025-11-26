@@ -1,10 +1,11 @@
 from flask import Blueprint, request, jsonify
+
 from iam.application.services import AuthApplicationService
 
 iam_api = Blueprint('iam_api', __name__)
 auth_service = AuthApplicationService()
 
-@iam_api.route('/api/v1/insert_device', methods=['POST'])
+@iam_api.route('/api/v1/devices/insert_device', methods=['POST'])
 def insert_device():
     data = request.get_json()
     device_id = data.get('device_id')

@@ -1,4 +1,4 @@
-from peewee import Model, AutoField, FloatField, BooleanField, CharField, DateTimeField
+from peewee import Model, FloatField, BooleanField, CharField, DateTimeField
 
 from shared.infastructure.database import database as edge_database
 

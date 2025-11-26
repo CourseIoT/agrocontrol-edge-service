@@ -12,6 +12,7 @@ app.register_blueprint(sensor_api)
 
 def setup():
 
+    # Initialize the database
     init_database()
 
     auth_application_service = AuthApplicationService()

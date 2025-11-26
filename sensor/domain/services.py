@@ -1,4 +1,3 @@
-
 from datetime import datetime, timezone
 from dateutil.parser import parse
 
@@ -10,11 +9,11 @@ class SensorRecordService:
         
         created_at = parse(created_at_str)
         return SensorRecord(
-            device_id=device_id,
-            temperature=temperature,
-            humidityAir=humidityAir,
-            humidityFloor=humidityFloor,
-            levelWaterOk=levelWaterOk,
-            bombWaterOk=bombWaterOk,
-            created_at=created_at
+            device_id = device_id,
+            temperature = temperature,
+            humidityAir = humidityAir,
+            humidityFloor = humidityFloor,
+            levelWaterOk = levelWaterOk,
+            bombWaterOk = bombWaterOk,
+            created_at = created_at
         )
