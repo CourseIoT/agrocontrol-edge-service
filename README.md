@@ -2,8 +2,8 @@
 
 
 ## API Endpoints
-- `POST /api/v1/devices/insert_device` Register a device
-- `POST /api/v1/sensors/sensor-records` Insert a sensor data
+- `POST /api/v1/devices/insert_device`: Register a devices.
+- `POST /api/v1/sensors/sensor-records`: Insert a sensor data.
 
 ## How to install
 

@@ -5,6 +5,8 @@ from iam.application.services import AuthApplicationService
 iam_api = Blueprint('iam_api', __name__)
 auth_service = AuthApplicationService()
 
+# Device Repository
+# Handle devices
 @iam_api.route('/api/v1/devices/insert_device', methods=['POST'])
 def insert_device():
     data = request.get_json()

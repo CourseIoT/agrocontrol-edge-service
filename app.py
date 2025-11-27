@@ -1,6 +1,6 @@
 from flask import Flask
 
-from shared.infastructure.database import init_database
+from shared.infastructure.database import DatabaseInitializer
 from iam.application.services import AuthApplicationService
 
 from iam.interfaces.services import iam_api
@@ -13,7 +13,7 @@ app.register_blueprint(sensor_api)
 def setup():
 
     # Initialize the database
-    init_database()
+    DatabaseInitializer().init_database()
 
     auth_application_service = AuthApplicationService()
     test_device = auth_application_service.get_or_create_test_device()

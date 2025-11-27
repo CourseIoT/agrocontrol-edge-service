@@ -1,6 +1,8 @@
 from sensor.domain.entities import SensorRecord
 from sensor.infrastructure.models import SensorDataRecord as SensorDataRecordModel
 
+# SensorRecord Repository
+# Handle sensor data
 class SensorRecordRepository:
 
     @staticmethod
