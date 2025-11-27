@@ -8,7 +8,7 @@ from iam.interfaces.services import authenticate_request
 sensor_api = Blueprint('sensor_api', __name__)
 sensor_record_service = SensorRecordApplicationService()
 
-@sensor_api.route('/api/v1/sensors/sensor_records', methods=['POST'])
+@sensor_api.route('/api/v1/sensors/sensor-records', methods=['POST'])
 def create_sensor_record():
 
     auth_result = authenticate_request()
