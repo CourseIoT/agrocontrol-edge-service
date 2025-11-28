@@ -27,7 +27,6 @@ class SensorRecordApplicationService:
         if device is None:
             raise ValueError("Authentication failed: Invalid device ID or API key")
         
-        # 2. Validación de Datos (Negocio)
         try:
             self.validate_values(airTemperature, airHumidity, avgSoilMoisture)
         except ValueError as ve:
@@ -45,16 +44,24 @@ class SensorRecordApplicationService:
             created_at_str=created_at
         )
 
-        print(f"eee {saved_sensor_record.device_id}, {soilMoisture2}, {soilMoisture3}")
-
         return self.sensor_record_repository.save(saved_sensor_record)
-    
-        # 5. Envío a API Externa (Cloud)
+
+    def enable_water_pump(self, device_id: str, api_key: str) -> None:
+        device = self.device_repository.find_by_id_and_api_key(device_id, api_key)
+        if device is None:
+            raise ValueError("Device not found")
+        
         try:
-             pass 
-        except Exception as e:
-            print(f"Warning: Failed to sync with cloud: {e}")
-            return self.sensor_record_repository.save(saved_sensor_record)
-    
+            # Buscar IPV4 del dispositivo
+            """
+                response = requests.post(f"/enable-pump", timeout=5)
+                response.raise_for_status()
+            """
+            print(f"Water pump enabled for device {device_id}")            
+
+        except requests.RequestException as re:
+            raise ValueError(f"Failed to enable water pump: {str(re)}")
+        
     def validate_values(self, airTemperature: float, airHumidity: float, avgSoilMoisture: int) -> None:
         return None
+    

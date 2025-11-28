@@ -72,3 +72,24 @@ def create_sensor_record():
     
     except ValueError as ve:
         return jsonify({'error': str(ve)}), 400
+    
+@sensor_api.route('/api/v1/sensors/enable-water-pump', methods=['POST'])
+def enable_water_pump():
+    auth_result = authenticate_request()
+    if auth_result:
+        return auth_result
+    
+    device_id = request.args.get('device_id')
+    api_key = request.headers.get('X-API-KEY')
+
+    if api_key is None:
+        return jsonify({'error': 'Missing API key in headers'}), 401
+    
+    if device_id is None:
+        return jsonify({'error': 'Missing device_id in query parameters'}), 400
+
+    try:
+        sensor_record_service.enable_water_pump(device_id, api_key)
+        return jsonify({'message': f'Water pump enabled for device {device_id}'}), 200
+    except ValueError as ve:
+        return jsonify({'error': str(ve)}), 400

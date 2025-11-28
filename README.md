@@ -4,7 +4,7 @@
 ## API Endpoints
 - `POST /api/v1/devices/insert_device`: Register a devices.
 - `POST /api/v1/sensors/sensor-records`: Insert a sensor data.
-
+- `POST /api/v1/sensors/enable-water-pump`: Enable water pump for a device.
 ## How to install
 
 Create a virtual environment if doesn't exists.
@@ -12,14 +12,16 @@ Create a virtual environment if doesn't exists.
 python -m venv venv
 ```
 
-Enter to the virtual environment.
+### Linux:
+Enter to the virtual environment. 
 ```sh
 source venv/bin/activate 
 ```
+### Windows
 
 Install the requeriments if doesn't exists.
 ```sh
-pip install -r requeriments.txt
+pip install -r requirements.txt
 ```
 
 Open the app.
