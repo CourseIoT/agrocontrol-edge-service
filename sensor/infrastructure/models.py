@@ -1,14 +1,16 @@
-from peewee import Model, FloatField, BooleanField, CharField, DateTimeField
+from peewee import Model, FloatField, IntegerField, BooleanField, CharField, DateTimeField
 
 from shared.infastructure.database import database as edge_database
 
 class SensorDataRecord(Model):
     device_id = CharField()
-    temperature = FloatField()
-    humidityAir = FloatField()
-    humidityFloor = FloatField()
-    levelWaterOk = BooleanField()
-    bombWaterOk = BooleanField()
+    airHumidity = FloatField()
+    airTemperature = FloatField()
+    soilMoisture1 = IntegerField()
+    soilMoisture2 = IntegerField()
+    soilMoisture3 = IntegerField()
+    avgSoilMoisture = IntegerField()
+    pumpState = BooleanField()
     created_at = DateTimeField()
 
     class Meta:
