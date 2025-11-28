@@ -11,6 +11,7 @@ Create a virtual environment if doesn't exists.
 ```sh
 python -m venv venv
 ```
+--------------
 
 ### Linux:
 Enter to the virtual environment. 
@@ -28,6 +29,7 @@ Then:
 ```sh
 venv\Scripts\Activate.ps1
 ```
+--------------
 
 Install the requeriments if doesn't exists.
 ```sh
