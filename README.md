@@ -18,6 +18,16 @@ Enter to the virtual environment.
 source venv/bin/activate 
 ```
 ### Windows
+To enable the script executión in the sessión
+Use in the PowerShell
+```sh
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+```
+
+Then:
+```sh
+venv\Scripts\Activate.ps1
+```
 
 Install the requeriments if doesn't exists.
 ```sh
